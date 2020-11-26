@@ -180,7 +180,7 @@
             const imageData = ctx.getImageData(0, 0, 140, 140);
 
             //convert to tensor 
-            var tfImg = tf.browser.fromPixels(imageData, 1);
+            var tfImg = tf.browser.fromPixels(imageData, 0);
             var smalImg = tf.image.resizeBilinear(tfImg, [28, 28]);
             smalImg = tf.cast(smalImg, 'float32');
             //var tensor = smalImg.expandDims(0);
