@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>MNIST</title>
+    <title>MNISTowo</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
     <script type="text/javascript">
         // Variables for referencing the canvas and 2dcanvas context
@@ -182,8 +182,8 @@
             //convert to tensor 
             var tfImg = tf.browser.fromPixels(imageData, 1);
             var smalImg = tf.image.resizeBilinear(tfImg, [28, 28]);
-            smalImg = tf.cast(smalImg, 'float32');
             var tensor = smalImg.expandDims(0);
+            smalImg = tf.cast(smalImg, 'float32');
             tensor = tensor.div(tf.scalar(255));
             const prediction = model.predict(tensor);
             const predictedValues = prediction.dataSync();
