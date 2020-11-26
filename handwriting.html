@@ -183,7 +183,7 @@
             var tfImg = tf.browser.fromPixels(imageData, 1);
             var smalImg = tf.image.resizeBilinear(tfImg, [28, 28]);
             smalImg = tf.cast(smalImg, 'float32');
-            var tensor = smalImg; //smalImg.expandDims(0);
+            var tensor = smalImg.expandDims(0);
             tensor = tensor.div(tf.scalar(255));
             const prediction = model.predict(tensor);
             const predictedValues = prediction.dataSync();
